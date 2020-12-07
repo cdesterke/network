@@ -15,6 +15,20 @@ gsg = goodSamplesGenes(matrix, verbose = 3)
 gsg$allOK 
 
 
+#If the last statement returns TRUE, all genes have passed the cuts. If not, we remove the offending genes and samples from the data with the following:
+#if (!gsg$allOK)
+#   {if (sum(!gsg$goodGenes)>0)
+#       printFlush(paste("Removing genes:", paste(names(matrix)[!gsg$goodGenes], collapse= ", ")));
+#       if (sum(!gsg$goodSamples)>0)
+#           printFlush(paste("Removing samples:", paste(rownames(matrix)[!gsg$goodSamples], collapse=", ")))
+#       matrix= matrix[gsg$goodSamples, gsg$goodGenes]
+#       }
+
+
+
+
+
+
 table(rownames(matrix)==rownames(pheno))
 
 save(matrix, pheno, file="SamplesAndTraits.RData")
